@@ -1,3 +1,7 @@
+const path = require('path');
+const Inspect = require('vite-plugin-inspect');
+const Unocss = require('unocss/vite');
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -14,5 +18,12 @@ module.exports = {
   },
   "features": {
     "storyStoreV7": true
+  },
+  // stroybook 配置 unocss
+  async viteFinal(config, { configType }) {
+    config.resolve.alias['~'] = `${path.resolve(__dirname, 'src')}/`;
+    config.plugins.push(Unocss.default());
+    config.plugins.push(Inspect());
+    return config;
   }
 }

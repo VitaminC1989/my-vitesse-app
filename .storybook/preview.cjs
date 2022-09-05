@@ -1,3 +1,7 @@
+import '@unocss/reset/tailwind.css'
+import '../src/styles/main.css'
+import 'uno.css'
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
