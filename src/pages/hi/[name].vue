@@ -4,8 +4,12 @@ const router = useRouter()
 const user = useUserStore()
 const { t } = useI18n()
 
+onMounted(() => {
+
+})
+
 watchEffect(() => {
-  user.setNewName(props.name)
+  // user.setNewName(props.text)
 })
 </script>
 

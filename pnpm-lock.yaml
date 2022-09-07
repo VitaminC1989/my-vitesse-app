@@ -18,6 +18,7 @@ specifiers:
   '@vue/test-utils': ^2.0.2
   '@vueuse/core': ^9.1.0
   '@vueuse/head': ^0.7.9
+  animate.css: ^4.1.1
   babel-loader: ^8.2.5
   critters: ^0.0.16
   cross-env: ^7.0.3
@@ -25,6 +26,7 @@ specifiers:
   eslint: ^8.21.0
   eslint-plugin-cypress: ^2.12.1
   https-localhost: ^4.7.1
+  lodash: ^4.17.21
   markdown-it-link-attributes: ^4.0.0
   markdown-it-shiki: ^0.5.1
   nprogress: ^0.2.0
@@ -56,6 +58,8 @@ specifiers:
 dependencies:
   '@vueuse/core': 9.1.0_vue@3.2.37
   '@vueuse/head': 0.7.9_vue@3.2.37
+  animate.css: 4.1.1
+  lodash: 4.17.21
   nprogress: 0.2.0
   pinia: 2.0.17_j6bzmzd4ujpabbp5objtwxyjp4
   vue: 3.2.37
@@ -5012,6 +5016,10 @@ packages:
       require-from-string: 2.0.2
       uri-js: 4.4.1
     dev: true
+
+  /animate.css/4.1.1:
+    resolution: {integrity: sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==}
+    dev: false
 
   /ansi-align/3.0.1:
     resolution: {integrity: sha512-IOfwwBF5iczOjp/WeY4YxyjqAFMQoZufdQWDd19SEExbVLNXqvpzSJ/M7Za4/sCPmQ0+GRquoA7bGcINcxew6w==}
@@ -10493,7 +10501,6 @@ packages:
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /log-symbols/4.1.0:
     resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==}
