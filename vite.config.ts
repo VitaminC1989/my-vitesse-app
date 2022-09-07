@@ -12,6 +12,7 @@ import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Inspect from 'vite-plugin-inspect'
 import LinkAttributes from 'markdown-it-link-attributes'
 import Unocss from 'unocss/vite'
+import transformerDirective from '@unocss/transformer-directives'
 import Shiki from 'markdown-it-shiki'
 
 export default defineConfig({
@@ -64,7 +65,12 @@ export default defineConfig({
 
     // https://github.com/antfu/unocss
     // see unocss.config.ts for config
-    Unocss(),
+    Unocss({
+      transformers: [
+        // 开启 @apply 功能
+        transformerDirective(),
+      ],
+    }),
 
     // https://github.com/antfu/vite-plugin-vue-markdown
     // Don't need this? Try vitesse-lite: https://github.com/antfu/vitesse-lite
