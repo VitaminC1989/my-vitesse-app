@@ -29,6 +29,7 @@ specifiers:
   lodash: ^4.17.21
   markdown-it-link-attributes: ^4.0.0
   markdown-it-shiki: ^0.5.1
+  monaco-editor: ^0.34.0
   nprogress: ^0.2.0
   pinia: ^2.0.17
   pnpm: ^7.8.0
@@ -60,6 +61,7 @@ dependencies:
   '@vueuse/head': 0.7.9_vue@3.2.37
   animate.css: 4.1.1
   lodash: 4.17.21
+  monaco-editor: 0.34.0
   nprogress: 0.2.0
   pinia: 2.0.17_j6bzmzd4ujpabbp5objtwxyjp4
   vue: 3.2.37
@@ -11040,6 +11042,10 @@ packages:
       pathe: 0.3.3
       pkg-types: 0.3.3
     dev: true
+
+  /monaco-editor/0.34.0:
+    resolution: {integrity: sha512-VF+S5zG8wxfinLKLrWcl4WUizMx+LeJrG4PM/M78OhcwocpV0jiyhX/pG6Q9jIOhrb/ckYi6nHnaR5OojlOZCQ==}
+    dev: false
 
   /move-concurrently/1.0.1:
     resolution: {integrity: sha512-hdrFxZOycD/g6A6SoI2bB5NA/5NEqD0569+S47WZhPvm46sD50ZHdYaFmnua5lndde9rCHGjmfK7Z8BuCt/PcQ==}
