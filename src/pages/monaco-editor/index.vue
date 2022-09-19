@@ -11,29 +11,34 @@ import HtmlWorker from 'monaco-editor/esm/vs/language/html/html.worker?worker'
 import MarkdownWorker from 'monaco-editor/esm/vs/basic-languages/markdown/markdown?worker'
 import TsWorker from 'monaco-editor/esm/vs/language/typescript/ts.worker?worker'
 
-self.MonacoEnvironment = {
-  getWorker(_, label) {
-    if (label === 'json')
-      return new JsonWorker()
+import _debounce from 'lodash/debounce'
 
-    if (label === 'css' || label === 'scss' || label === 'less')
-      return new CssWorker()
-
-    if (label === 'html' || label === 'handlebars' || label === 'razor')
-      return new HtmlWorker()
-
-    if (label === 'typescript' || label === 'javascript')
-      return new TsWorker()
-
-    if (label === 'markdown' || label === 'md')
-      return new MarkdownWorker()
-
-    return new EditorWorker()
-  },
-}
+const emit = defineEmits(['onChange'])
 
 let editor: monaco.editor.IStandaloneCodeEditor
-onMounted(() => {
+
+const init = () => {
+  self.MonacoEnvironment = {
+    getWorker(_, label) {
+      if (label === 'json')
+        return new JsonWorker()
+
+      if (label === 'css' || label === 'scss' || label === 'less')
+        return new CssWorker()
+
+      if (label === 'html' || label === 'handlebars' || label === 'razor')
+        return new HtmlWorker()
+
+      if (label === 'typescript' || label === 'javascript')
+        return new TsWorker()
+
+      if (label === 'markdown' || label === 'md')
+        return new MarkdownWorker()
+
+      return new EditorWorker()
+    },
+  }
+
   const dom = document.getElementById('container') as HTMLElement
   editor = monaco.editor.create(dom, {
     // value: 'function hello() {\n\talert(\'Hello world!\');\n}',
@@ -51,9 +56,19 @@ onMounted(() => {
     window.console.log(editor.getValue())
   }
 
-  editor.onKeyUp((e) => {
-    // self.console.log('onKeyUp', e)
+  const log = () => {
+    self.console.log(editor.getValue())
+    emit('onChange')
+  }
+  const debouncedLog = _debounce(log, 200)
+  const model = editor.getModel()
+  model && model.onDidChangeContent((event) => {
+    // self.console.log(event)
+    debouncedLog()
   })
+}
+onMounted(() => {
+  init()
 })
 </script>
 
